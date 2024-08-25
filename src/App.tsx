@@ -1,6 +1,7 @@
 import "./App.css";
 import AppHeader from "./components/app-header/AppHeader";
 import Sidebar from "./components/sidebar/Sidebar";
+import TabNavigator from "./components/tab-navigation/TabNavigator";
 
 function App() {
   // IMPORTANT: Do not change the classes in this component
@@ -15,13 +16,7 @@ function App() {
 
         <div className="flex-auto flex">
 
-          <div className="flex-initial">
-            <Sidebar /> {/* This is the sidebar */}
-          </div>
-
-          <div className="flex-auto bg-green-100">
-            {/* This is where I'll add the tab component */}
-          </div>
+          <TabNavigator />
 
         </div>
 

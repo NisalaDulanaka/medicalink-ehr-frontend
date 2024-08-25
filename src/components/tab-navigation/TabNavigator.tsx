@@ -1,26 +1,23 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useTabContext } from './TabContext';
 
 interface TabProps {
     className?: String | undefined;
 }
 
 export default function TabNavigator() {
-    const [activeTab, setActiveTab] = useState(0);
-    const [tabs, setTabs] = useState([
-        { title: 'Home', element: HomeTab },
-        { title: 'Seneli 20 yrs, Female, Radiology', element: PatientTab },
-        { title: 'Settings', element: SettingsTab },
-        { title: 'Counter Tab', element: HomeTab }
-    ]);
+    const { activeTab, setActiveTab, tabs, removeTab } = useTabContext();
 
-    const removeTab = (index: number) => {
-        let newTabs = tabs.slice(0,index).concat(tabs.slice(index + 1, tabs.length));
-        console.log(newTabs);
-        setTabs(newTabs);
-    }
+    useEffect(() => {
+        // Figure out the next active tab
+        if(activeTab >= tabs.length) {
+            setActiveTab(0);
+        }
+
+    }, [tabs]);
 
     return (
         <div className="w-full h-full">
@@ -35,7 +32,7 @@ export default function TabNavigator() {
                     {
                         tabs.map((tab, index) => {
                             return (
-                                <div key={index} className={index == activeTab ? 'bg-white border-b-[2.5px] border-[#2196F3] text-[#2196F3]' : ''}
+                                <div key={tab.key} className={index == activeTab ? 'bg-white border-b-[2.5px] border-[#2196F3] text-[#2196F3]' : ''}
                                     onClick={() => setActiveTab(index)}>
                                     <span>{tab.title}</span>
                                     <button className='' onClick={() => removeTab(index)}>
@@ -45,30 +42,6 @@ export default function TabNavigator() {
                             );
                         })
                     }
-                    {/* <div className='bg-white border-b-[2.5px] border-[#2196F3] text-[#2196F3]'>
-                        <span>Home</span>
-                        <button className='hidden'>
-                            <CloseIcon className='!text-[16px]' />
-                        </button>
-                    </div>
-                    <div>
-                        <span>Seneli 20 yrs, Female, Radiology</span>
-                        <button className=''>
-                            <CloseIcon className='!text-[16px]' />
-                        </button>
-                    </div>
-                    <div>
-                        <span>Clendar</span>
-                        <button className=''>
-                            <CloseIcon className='!text-[16px]' />
-                        </button>
-                    </div>
-                    <div>
-                        <span>Settings</span>
-                        <button className=''>
-                            <CloseIcon className='!text-[16px]' />
-                        </button>
-                    </div> */}
 
                 </div>
 
@@ -81,7 +54,9 @@ export default function TabNavigator() {
                 {
                     tabs.map((tab, index) => {
                         return (
-                            <tab.element key={index} className={index != activeTab ? 'hidden' : ''} />
+                            <div key={tab.key} className={index != activeTab ? 'hidden' : ''}>
+                                {tab.element}
+                            </div>
                         );
                     })
                 }
@@ -90,7 +65,7 @@ export default function TabNavigator() {
     )
 }
 
-function HomeTab({ className }: TabProps) {
+export function HomeTab({ className }: TabProps) {
     const [count, setCount] = useState(0);
 
     return (
@@ -104,7 +79,7 @@ function HomeTab({ className }: TabProps) {
     )
 }
 
-function SettingsTab({ className }: TabProps) {
+export function SettingsTab({ className }: TabProps) {
     const [count, setCount] = useState(0);
 
     return (
@@ -118,7 +93,7 @@ function SettingsTab({ className }: TabProps) {
     )
 }
 
-function PatientTab({ className }: TabProps) {
+export function PatientTab({ className }: TabProps) {
     const [count, setCount] = useState(0);
 
     return (

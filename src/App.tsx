@@ -1,6 +1,6 @@
 import "./App.css";
 import AppHeader from "./components/app-header/AppHeader";
-import Sidebar from "./components/sidebar/Sidebar";
+import TabContextProvider from "./components/tab-navigation/TabContext";
 import TabNavigator from "./components/tab-navigation/TabNavigator";
 
 function App() {
@@ -10,15 +10,17 @@ function App() {
     <>
       <div className="h-[100vh] flex flex-col">
 
-        <div className="flex-initial">
-          <AppHeader /> {/* This is where you put the appbar. I just created a component named AppHeader change it as you like */}
-        </div>
+        <TabContextProvider>
+          <div className="flex-initial">
+            <AppHeader /> {/* This is where you put the appbar. I just created a component named AppHeader change it as you like */}
+          </div>
 
-        <div className="flex-auto flex">
+          <div className="flex-auto flex">
 
-          <TabNavigator />
+            <TabNavigator />
 
-        </div>
+          </div>
+        </TabContextProvider>
 
       </div>
     </>

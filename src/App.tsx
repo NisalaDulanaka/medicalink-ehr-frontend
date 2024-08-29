@@ -1,6 +1,7 @@
 import "./App.css";
 import AppHeader from "./components/app-header/AppHeader";
 import Sidebar from "./components/sidebar/Sidebar";
+import DenseTable from "./components/dense-table/DenseTable";
 
 function App() {
   // IMPORTANT: Do not change the classes in this component
@@ -21,6 +22,7 @@ function App() {
 
           <div className="flex-auto bg-green-100">
             {/* This is where I'll add the tab component */}
+            <DenseTable />
           </div>
 
         </div>

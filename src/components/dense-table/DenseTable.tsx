@@ -12,7 +12,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 interface Column {
-  id: "name" | "code" | "population" | "size" | "density";
+  id: "time" | "nic" | "name" | "gender" | "dob" | "type" | "assignee";
   label: string;
   minWidth?: number;
   align?: "right";
@@ -20,64 +20,97 @@ interface Column {
 }
 
 const columns: readonly Column[] = [
-  { id: "name", label: "Name", minWidth: 170 },
-  { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
   {
-    id: "population",
-    label: "Population",
+    id: "time",
+    label: "Visit Time",
     minWidth: 170,
-    align: "right",
-    format: (value: number) => value.toLocaleString("en-US"),
+  },
+  { id: "nic", label: "NIC", minWidth: 170 },
+  { id: "name", label: "Name", minWidth: 200 },
+  {
+    id: "gender",
+    label: "Gender",
+    minWidth: 100,
   },
   {
-    id: "size",
-    label: "Size\u00a0(km\u00b2)",
-    minWidth: 170,
-    format: (value: number) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "density",
-    label: "Density",
+    id: "dob",
+    label: "Date of Birth",
     minWidth: 170,
     align: "right",
-    format: (value: number) => value.toFixed(2),
+  },
+  {
+    id: "type",
+    label: "Visit Type",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "assignee",
+    label: "Doctor Assigned",
+    minWidth: 170,
+    align: "right",
   },
 ];
 
 interface Data {
+  time: string;
+  nic: string;
   name: string;
-  code: string;
-  population: number;
-  size: number;
-  density: number;
+  gender: string;
+  dob: string;
+  type: string;
+  assignee: string;
 }
 
 function createData(
+  time: string,
+  nic: string,
   name: string,
-  code: string,
-  population: number,
-  size: number
+  gender: string,
+  dob: string,
+  type: string,
+  assignee: string
 ): Data {
-  const density = population / size;
-  return { name, code, population, size, density };
+  return { time, nic, name, gender, dob, type, assignee };
 }
 
 const rows = [
-  createData("India", "IN", 1324171354, 3287263),
-  createData("China", "CN", 1403500365, 9596961),
-  createData("Italy", "IT", 60483973, 301340),
-  createData("United States", "US", 327167434, 9833520),
-  createData("Canada", "CA", 37602103, 9984670),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
+  createData(
+    "Today, 18:30 - 19:00",
+    "200311513520",
+    "Chiranga Shalitha",
+    "M",
+    "24/04/2003",
+    "Clinic Visit",
+    "Randev"
+  ),
+  createData(
+    "Today, 19:00 - 19:30",
+    "200365456765",
+    "Nadun Mirissage",
+    "M",
+    "20/04/2004",
+    "Facility Visit",
+    "Randev"
+  ),
+  createData(
+    "Today, 19:30 - 20:00",
+    "200566443564",
+    "Dinali Perera",
+    "F",
+    "19/03/2005",
+    "OPD Visit",
+    "Akeem"
+  ),
+  createData(
+    "Today, 20:00 - 20:30",
+    "15653448544v",
+    "Savini Rathnayake",
+    "F",
+    "25/11/1999",
+    "Facility Visit",
+    "Akeem"
+  ),
 ];
 
 export default function DenseTable() {
@@ -110,15 +143,15 @@ export default function DenseTable() {
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <CardContent>
           <Typography variant="h5" component="div">
-            Title
+            Today's Appointments
           </Typography>
           <Typography
             gutterBottom
             sx={{ color: "text.secondary", fontSize: 14 }}
           >
-            Subtitle
+            Upcoming
           </Typography>
-          <Typography variant="body2">Body</Typography>
+          {/* <Typography variant="body2">Body</Typography> */}
         </CardContent>
         <TableContainer sx={{ maxHeight: 200 }}>
           <Table stickyHeader aria-label="sticky table" size="small">
@@ -128,7 +161,7 @@ export default function DenseTable() {
                   <TableCell
                     key={column.id}
                     align={column.align}
-                    style={{ minWidth: column.minWidth }}
+                    style={{ minWidth: column.minWidth, fontWeight: "bold" }}
                   >
                     {column.label}
                   </TableCell>
@@ -140,12 +173,7 @@ export default function DenseTable() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row) => {
                   return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.nic}>
                       {columns.map((column) => {
                         const value = row[column.id];
                         return (

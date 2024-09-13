@@ -17,7 +17,7 @@ function PatientInfo(props: Props) {
   return (
     <Card
       sx={{
-        maxWidth: 800,
+        maxWidth: "auto",
         maxHeight: "auto",
         margin: 1,
         display: "flex",
@@ -40,6 +40,7 @@ function PatientInfo(props: Props) {
       </CardContent>
       <CardActions></CardActions>
     </Card>
+    
   );
 }
 

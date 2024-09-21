@@ -42,7 +42,7 @@ export default function TabNavigator() {
           })}
 
           <div
-            className="text-[#2196F3] !px-3 hover:bg-gray-200" onClick={() => addTab({title: "Home", element: <HomeTab />})}>
+            className="text-[#2196F3] !px-3 hover:bg-gray-200" onClick={() => addTab({title: "Home", element: <HomeTabTest />})}>
                 <AddIcon />
           </div>
         </div>
@@ -65,7 +65,8 @@ export default function TabNavigator() {
   );
 }
 
-export function HomeTab({ className }: TabProps) {
+//Only used for testing the tab system
+export function HomeTabTest({ className }: TabProps) {
   const { addTab } = useTabContext();
   const [count, setCount] = useState(0);
 
@@ -88,20 +89,20 @@ export function HomeTab({ className }: TabProps) {
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
           onClick={() =>
-            addTab({ title: "Settings", element: <SettingsTab /> })
+            addTab({ title: "Settings", element: <SettingsTabTest /> })
           }
         >
           Go to Settings
         </button>
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() => addTab({ title: "Patients", element: <PatientTab /> })}
+          onClick={() => addTab({ title: "Patients", element: <PatientTabTest /> })}
         >
           Go to Patients
         </button>
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() => addTab({ title: "Test", element: <TestTab /> })}
+          onClick={() => addTab({ title: "Test", element: <TestTabTest /> })}
         >
           Go to Test
         </button>
@@ -110,7 +111,7 @@ export function HomeTab({ className }: TabProps) {
   );
 }
 
-export function SettingsTab({ className }: TabProps) {
+export function SettingsTabTest({ className }: TabProps) {
   const [count, setCount] = useState(0);
 
   return (
@@ -131,7 +132,7 @@ export function SettingsTab({ className }: TabProps) {
   );
 }
 
-export function PatientTab({ className }: TabProps) {
+export function PatientTabTest({ className }: TabProps) {
   const [count, setCount] = useState(0);
 
   return (
@@ -153,7 +154,7 @@ export function PatientTab({ className }: TabProps) {
   );
 }
 
-export function TestTab({ className }: TabProps) {
+export function TestTabTest({ className }: TabProps) {
   return (
     <div
       className={`flex flex-col justify-center items-center py-20 ${className}`}

@@ -1,12 +1,13 @@
-import React from 'react'
-import IBDForm from '../components/medical-form/IBDForm'
+import IBDForm from "../components/medical-form/IBDForm";
+import CCDForm from "../components/medical-form/CCDForm";
 
 const MedicalForms = () => {
   return (
     <div>
-        <IBDForm />
+      <IBDForm />
+      <CCDForm />
     </div>
-  )
-}
+  );
+};
 
-export default MedicalForms
+export default MedicalForms;

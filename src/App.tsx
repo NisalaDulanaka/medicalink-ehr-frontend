@@ -1,6 +1,5 @@
 import "./App.css";
 import AppHeader from "./components/app-header/AppHeader";
-import IBDForm from "./components/medical-form/IBDForm";
 import TabContextProvider from "./components/tab-navigation/TabContext";
 import TabNavigator from "./components/tab-navigation/TabNavigator";
 

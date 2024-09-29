@@ -184,10 +184,8 @@ export function TestTabTest({ className }: TabProps) {
 
 export function MedicalFormsTabTest({ className }: TabProps) {
   return (
-    <div
-      className={`flex flex-col justify-center items-center py-20 ${className}`}
-    >
-      <h1 className="text-2xl">Medical Forms</h1>
+    <div className={`flex flex-col ${className}`}>
+      <h1 className="text-2xl mt-5 ml-5">Medical Forms</h1>
       <MedicalForms />
     </div>
   );

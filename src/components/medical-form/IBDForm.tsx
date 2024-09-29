@@ -12,14 +12,16 @@ import { Grid, MenuItem, Checkbox, FormControlLabel } from "@mui/material";
 const IBDForm = () => {
   return (
     <div className="m-5">
-      <Typography>Inflammatory Bowel Disease - Form</Typography>
-      <Accordion>
+      <Typography className="underline">
+        Inflammatory Bowel Disease - Form
+      </Typography>
+      <Accordion className="mt-2">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          Personal Information
+          Section A - Personal Information
         </AccordionSummary>
         <AccordionDetails>
           <Grid container spacing={2}>
@@ -79,7 +81,7 @@ const IBDForm = () => {
                 <MenuItem value="Male">Male</MenuItem>
                 <MenuItem value="Female">Female</MenuItem>
                 <MenuItem value="Other">
-                  There are only two genders in this world
+                  Other
                 </MenuItem>
               </TextField>
             </Grid>
@@ -185,7 +187,7 @@ const IBDForm = () => {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          History & Symptoms of IBD
+          Section B - History & Symptoms of IBD
         </AccordionSummary>
         <AccordionDetails>
           <Grid container spacing={2}>
@@ -535,7 +537,7 @@ const IBDForm = () => {
           aria-controls="panel3-content"
           id="panel3-header"
         >
-          Additional Information
+          Section C - Additional Information
         </AccordionSummary>
         <AccordionDetails>
           <Grid container spacing={2}>

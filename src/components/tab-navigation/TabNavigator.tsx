@@ -3,7 +3,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useTabContext } from "./tabUtils";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
+import HomeNew from "../../pages/HomeNew";
 
 interface TabProps {
   className?: string | undefined;
@@ -42,12 +43,17 @@ export default function TabNavigator() {
           })}
 
           <div
-            className="text-[#2196F3] !px-3 hover:bg-gray-200" onClick={() => addTab({title: "Home", element: <HomeTabTest />})}>
-                <AddIcon />
+            className="text-[#2196F3] !px-3 hover:bg-gray-200"
+            onClick={() => addTab({ title: "Home", element: <HomeTabTest /> })}
+          >
+            <AddIcon />
           </div>
         </div>
 
-        <button className="ms-auto flex items-center px-2 text-gray-400" disabled>
+        <button
+          className="ms-auto flex items-center px-2 text-gray-400"
+          disabled
+        >
           <ArrowForwardIosIcon className="!text-[12px]" />
         </button>
       </div>
@@ -96,7 +102,9 @@ export function HomeTabTest({ className }: TabProps) {
         </button>
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() => addTab({ title: "Patients", element: <PatientTabTest /> })}
+          onClick={() =>
+            addTab({ title: "Patients", element: <PatientTabTest /> })
+          }
         >
           Go to Patients
         </button>
@@ -105,6 +113,12 @@ export function HomeTabTest({ className }: TabProps) {
           onClick={() => addTab({ title: "Test", element: <TestTabTest /> })}
         >
           Go to Test
+        </button>
+        <button
+          className="rounded-lg bg-green-500 px-4 py-2"
+          onClick={() => addTab({ title: "HomeNew", element: <HomeNew /> })}
+        >
+          HomeNew
         </button>
       </div>
     </div>
@@ -162,6 +176,15 @@ export function TestTabTest({ className }: TabProps) {
       <h1 className="text-2xl">
         This tab is just to check if the add tab is working
       </h1>
+    </div>
+  );
+}
+
+export function HomeNewTest({ className }: TabProps) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <h1 className="text-2xl mt-5 ml-5"></h1>
+      <HomeNew />
     </div>
   );
 }

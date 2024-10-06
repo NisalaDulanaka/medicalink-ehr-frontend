@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import { Typography } from "@mui/material";
 import { Grid, MenuItem, Checkbox, FormControlLabel } from "@mui/material";
+import { FormControl, FormLabel, RadioGroup, Radio } from "@mui/material";
 
 const IBDForm = () => {
   return (
@@ -69,21 +70,18 @@ const IBDForm = () => {
                 InputLabelProps={{ shrink: true }}
               />
             </Grid>
-
             <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                select
-                fullWidth
-                label="Gender"
-                variant="outlined"
-              >
-                <MenuItem value="Male">Male</MenuItem>
-                <MenuItem value="Female">Female</MenuItem>
-                <MenuItem value="Other">
-                  Other
-                </MenuItem>
-              </TextField>
+              <FormControl component="fieldset">
+                <FormLabel>Gender</FormLabel>
+                <RadioGroup row name="gender">
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
             </Grid>
 
             <Grid item xs={12}>
@@ -139,21 +137,37 @@ const IBDForm = () => {
                 label="Do not resuscitate"
               />
             </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                select
-                fullWidth
-                label="Education Level  (If a Minor - Parent's Education Level)"
-                variant="outlined"
-              >
-                <MenuItem value="Higher education">Higher education</MenuItem>
-                <MenuItem value="Advanced level">Advanced level (ALs)</MenuItem>
-                <MenuItem value="Ordinary level">Ordinary level (OLs)</MenuItem>
-                <MenuItem value="Primary education">Primary education</MenuItem>
-                <MenuItem value="Grade 8">Grade 8</MenuItem>
-              </TextField>
+            <Grid item xs={12}>
+              <FormControl component="fieldset">
+                <FormLabel>Education Level</FormLabel>
+                <RadioGroup name="education">
+                  <FormControlLabel
+                    value="higher-education"
+                    control={<Radio />}
+                    label="Higher education"
+                  />
+                  <FormControlLabel
+                    value="advanced-level"
+                    control={<Radio />}
+                    label="Advanced level (ALs)"
+                  />
+                  <FormControlLabel
+                    value="ordinary-level"
+                    control={<Radio />}
+                    label="Ordinary level (OLs)"
+                  />
+                  <FormControlLabel
+                    value="primary-education"
+                    control={<Radio />}
+                    label="Primary education"
+                  />
+                  <FormControlLabel
+                    value="grade-8"
+                    control={<Radio />}
+                    label="Grade 8"
+                  />
+                </RadioGroup>
+              </FormControl>
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -163,20 +177,42 @@ const IBDForm = () => {
                 defaultValue=""
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                select
-                fullWidth
-                label="Monthly Income"
-                variant="outlined"
-              >
-                <MenuItem value="Less than 25k">Less than 25k</MenuItem>
-                <MenuItem value="25k-50k">25k-50k</MenuItem>
-                <MenuItem value="50k-75k">50k-75k</MenuItem>
-                <MenuItem value="75k-100k">75k-100k</MenuItem>
-                <MenuItem value="100k-200k">100k-200k</MenuItem>
-                <MenuItem value="Greater than 200k">Greater than 200k</MenuItem>
-              </TextField>
+            <Grid item xs={12}>
+              <FormControl component="fieldset">
+                <FormLabel>Monthly Income</FormLabel>
+                <RadioGroup name="monthly-income">
+                  <FormControlLabel
+                    value="<25k"
+                    control={<Radio />}
+                    label="Less than 25k"
+                  />
+                  <FormControlLabel
+                    value="25k-50k"
+                    control={<Radio />}
+                    label="25k-50k"
+                  />
+                  <FormControlLabel
+                    value="50k-75k"
+                    control={<Radio />}
+                    label="50k-75k"
+                  />
+                  <FormControlLabel
+                    value="75k-100k"
+                    control={<Radio />}
+                    label="75k-100k"
+                  />
+                  <FormControlLabel
+                    value="100k-200k"
+                    control={<Radio />}
+                    label="100k-200k"
+                  />
+                  <FormControlLabel
+                    value=">200k"
+                    control={<Radio />}
+                    label="Greater than 200k"
+                  />
+                </RadioGroup>
+              </FormControl>
             </Grid>
           </Grid>
         </AccordionDetails>

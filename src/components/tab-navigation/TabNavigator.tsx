@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useTabContext } from "./tabUtils";
 import AddIcon from "@mui/icons-material/Add";
-import MedicalForms from "../../pages/MedicalForms";
+import HomeNew from "../../pages/HomeNew";
 
 interface TabProps {
   className?: string | undefined;
@@ -116,11 +116,9 @@ export function HomeTabTest({ className }: TabProps) {
         </button>
         <button
           className="rounded-lg bg-green-500 px-4 py-2"
-          onClick={() =>
-            addTab({ title: "Medical Forms", element: <MedicalFormsTabTest /> })
-          }
+          onClick={() => addTab({ title: "HomeNew", element: <HomeNew /> })}
         >
-          Medical Forms
+          HomeNew
         </button>
       </div>
     </div>
@@ -182,11 +180,11 @@ export function TestTabTest({ className }: TabProps) {
   );
 }
 
-export function MedicalFormsTabTest({ className }: TabProps) {
+export function HomeNewTest({ className }: TabProps) {
   return (
     <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5">Medical Forms</h1>
-      <MedicalForms />
+      <h1 className="text-2xl mt-5 ml-5"></h1>
+      <HomeNew />
     </div>
   );
 }

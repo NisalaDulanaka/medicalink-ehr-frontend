@@ -9,19 +9,16 @@ function App() {
   return (
     <>
       <div className="h-[100vh] flex flex-col">
-
         <TabContextProvider>
           <div className="flex-initial">
-            <AppHeader /> {/* This is where you put the appbar. I just created a component named AppHeader change it as you like */}
+            <AppHeader />{" "}
+            {/* This is where you put the appbar. I just created a component named AppHeader change it as you like */}
           </div>
 
           <div className="flex-auto flex">
-
             <TabNavigator />
-
           </div>
         </TabContextProvider>
-
       </div>
     </>
   );

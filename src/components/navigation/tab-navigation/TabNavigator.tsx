@@ -4,7 +4,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useTabContext } from "./tabUtils";
 import AddIcon from "@mui/icons-material/Add";
-import HomeNew from "../../pages/HomeNew";
+import HomeNew from "../../../pages/HomePage";
+import AddNewPatient from "../../../pages/AddNewPatient";
 
 interface TabProps {
   className?: string | undefined;
@@ -44,7 +45,7 @@ export default function TabNavigator() {
 
           <div
             className="text-[#2196F3] !px-3 hover:bg-gray-200"
-            onClick={() => addTab({ title: "Home", element: <HomeTabTest /> })}
+            onClick={() => addTab({ title: "Home", path: "/", element: <HomeTabTest /> })}
           >
             <AddIcon />
           </div>
@@ -95,7 +96,7 @@ export function HomeTabTest({ className }: TabProps) {
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
           onClick={() =>
-            addTab({ title: "Settings", element: <SettingsTabTest /> })
+            addTab({ title: "Settings", path: "/settings", element: <SettingsTabTest /> })
           }
         >
           Go to Settings
@@ -103,22 +104,24 @@ export function HomeTabTest({ className }: TabProps) {
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
           onClick={() =>
-            addTab({ title: "Patients", element: <PatientTabTest /> })
+            addTab({ title: "Patients", path: "/patient", element: <PatientTabTest /> })
           }
         >
           Go to Patients
         </button>
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() => addTab({ title: "Test", element: <TestTabTest /> })}
+          onClick={() => addTab({ title: "Test", path: "/test", element: <TestTabTest /> })}
         >
           Go to Test
         </button>
         <button
           className="rounded-lg bg-green-500 px-4 py-2"
-          onClick={() => addTab({ title: "HomeNew", element: <HomeNew /> })}
+          onClick={() =>
+            addTab({ title: "Add New Patient", path: "/patient/add", element: <AddNewPatient /> })
+          }
         >
-          HomeNew
+          Add New Patient
         </button>
       </div>
     </div>

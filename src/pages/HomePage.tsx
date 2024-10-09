@@ -6,8 +6,12 @@ import ScheduleIcon from "@mui/icons-material/Schedule";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import BookIcon from "@mui/icons-material/Book";
 import BarChartIcon from "@mui/icons-material/BarChart";
+import { useTabContext } from "../components/navigation/tab-navigation/tabUtils";
+import PatientHome from "./PatientHome";
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
+  const { addTab } = useTabContext();
+
   return (
     <Box
       sx={{
@@ -47,8 +51,11 @@ const Home: React.FC = () => {
               textTransform: "none",
               color: "black",
             }}
-            href=""
-            target=""
+            onClick={() => addTab({
+              title: "Patient",
+              path: "/patient",
+              element: <PatientHome />,
+            })}
           >
             Find Existing Patient
           </Button>
@@ -65,8 +72,6 @@ const Home: React.FC = () => {
               textTransform: "none",
               color: "black",
             }}
-            href=""
-            target=""
           >
             Scheduling / Task Flow
           </Button>
@@ -83,8 +88,6 @@ const Home: React.FC = () => {
               textTransform: "none",
               color: "black",
             }}
-            href=""
-            target=""
           >
             Clinical Calculators
           </Button>
@@ -101,8 +104,6 @@ const Home: React.FC = () => {
               textTransform: "none",
               color: "black",
             }}
-            href=""
-            target=""
           >
             Guidelines
           </Button>
@@ -119,8 +120,6 @@ const Home: React.FC = () => {
               textTransform: "none",
               color: "black",
             }}
-            href=""
-            target=""
           >
             Research Statistics
           </Button>
@@ -130,4 +129,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;

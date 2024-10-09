@@ -12,8 +12,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import WhiteLogo from "../../assets/images/whitelogo.png";
 import WhiteLogo2 from "../../assets/images/WhiteLogo2.png";
 import AdminAvatar from "../../assets/images/randev.jpeg";
-import { Chip, IconButton } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import { IconButton, useMediaQuery } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
 import { AppMenuOption } from "./utils";
 
@@ -53,6 +52,7 @@ function AppHeader() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
+  const isLargeScreen = useMediaQuery("(min-width:600px)");
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -162,12 +162,19 @@ function AppHeader() {
             </Box>
 
             <Box>
-              <Chip
-                onClick={handleOpenUserMenu}
-                avatar={<Avatar alt="" src={AdminAvatar} />}
-                label="Randev Wannakuwatte"
-                sx={{ color: grey[50] }}
-              />
+              <Box sx={{ backgroundColor: "#00000022", height: "100%", borderRadius: "16px",
+                display: "flex", alignItems: "center", columnGap: "10px", paddingLeft: "8px", paddingRight: "8px",
+                paddingTop: "5px", paddingBottom: "5px", cursor: "pointer", }}
+                onClick={handleOpenUserMenu}>
+                <Avatar alt="" src={AdminAvatar} style={{
+                  width: "24px", height: "24px",
+                }}/>
+                {
+                  isLargeScreen && <Typography fontSize="0.8125rem" style={{
+                    userSelect: "none",
+                  }}>Randev Wannakuwatte</Typography>
+                }
+              </Box>
               <Menu
                 sx={{ mt: "25px" }}
                 id="profile-menu-appbar"

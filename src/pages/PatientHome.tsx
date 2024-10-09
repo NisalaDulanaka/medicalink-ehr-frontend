@@ -14,24 +14,12 @@ const PatientHome: React.FC = () => {
     <Box
       sx={{
         flexGrow: 1,
+        bgcolor: "#F5F9FF",
         minHeight: "100vh",
         padding: 2,
-        paddingTop: 4,
       }}
     >
       <Grid container spacing={2}>
-        <Grid
-          item
-          xs={12}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            color: "#0277bd",
-          }}
-        >
-          {/* Image and other details will be added later */}
-          <Typography>CHIRANGA SHALITHA, 21Y MALE</Typography>
-        </Grid>
         <Grid item xs={12} sm={6}>
           <Accordion>
             <AccordionSummary
@@ -46,6 +34,7 @@ const PatientHome: React.FC = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </Typography>
             </AccordionDetails>
           </Accordion>

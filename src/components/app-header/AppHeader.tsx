@@ -152,7 +152,7 @@ function AppHeader() {
             <Box>
               <Box sx={{ backgroundColor: "#00000022", height: "100%", borderRadius: "16px",
                 display: "flex", alignItems: "center", columnGap: "10px", paddingLeft: "8px", paddingRight: "8px",
-                paddingTop: "5px", paddingBottom: "5px", cursor: "pointer", }}
+                paddingTop: "7px", paddingBottom: "7px", cursor: "pointer", }}
                 onClick={handleOpenUserMenu}>
                 <Avatar alt="" src={AdminAvatar} style={{
                   width: "24px", height: "24px",

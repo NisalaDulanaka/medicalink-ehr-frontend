@@ -10,6 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import WhiteLogo from "../../assets/images/whitelogo.png";
+import WhiteLogo2 from "../../assets/images/WhiteLogo2.png";
 import AdminAvatar from "../../assets/images/randev.jpeg";
 import { Chip, IconButton } from "@mui/material";
 import { grey } from "@mui/material/colors";
@@ -90,7 +91,7 @@ function AppHeader() {
             alignItems: "center",
           }}
         >
-          <img src={WhiteLogo} width={100} />
+          <img src={WhiteLogo2} width={150} />
 
           <Box
             sx={{

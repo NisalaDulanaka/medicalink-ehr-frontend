@@ -21,6 +21,18 @@ const PatientHome: React.FC = () => {
       }}
     >
       <Grid container spacing={2}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            color: "#0277bd",
+          }}
+        >
+          {/* Image and other details will be added later */}
+          <Typography>CHIRANGA SHALITHA, 21Y MALE</Typography>
+        </Grid>
         <Grid item xs={12} sm={6}>
           <Accordion>
             <AccordionSummary

@@ -14,9 +14,10 @@ const PatientHome: React.FC = () => {
     <Box
       sx={{
         flexGrow: 1,
-        // bgcolor: "#F5F9FF",
+        bgcolor: "#F5F9FF",
         minHeight: "100vh",
         padding: 2,
+        paddingTop: 4,
       }}
     >
       <Grid container spacing={2}>

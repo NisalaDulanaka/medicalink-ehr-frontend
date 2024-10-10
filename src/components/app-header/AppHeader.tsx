@@ -9,11 +9,9 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import WhiteLogo from "../../assets/images/whitelogo.png";
 import WhiteLogo2 from "../../assets/images/WhiteLogo2.png";
 import AdminAvatar from "../../assets/images/randev.jpeg";
 import { IconButton, useMediaQuery } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
 import { AppMenuOption } from "./utils";
 
 const settings: AppMenuOption[] = [

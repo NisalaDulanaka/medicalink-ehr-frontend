@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useTabContext } from "./tabUtils";
 import AddIcon from "@mui/icons-material/Add";
 import HomeNew from "../../pages/HomeNew";
-
+import AddNewPatient from "../../pages/AddNewPatient";
 interface TabProps {
   className?: string | undefined;
 }
@@ -120,6 +120,14 @@ export function HomeTabTest({ className }: TabProps) {
         >
           HomeNew
         </button>
+        <button
+          className="rounded-lg bg-green-500 px-4 py-2"
+          onClick={() =>
+            addTab({ title: "Add New Patient", element: <AddNewPatient /> })
+          }
+        >
+          Add New Patient
+        </button>
       </div>
     </div>
   );
@@ -185,6 +193,15 @@ export function HomeNewTest({ className }: TabProps) {
     <div className={`flex flex-col ${className}`}>
       <h1 className="text-2xl mt-5 ml-5"></h1>
       <HomeNew />
+    </div>
+  );
+}
+
+export function AddNewPatientTest({ className }: TabProps) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <h1 className="text-2xl mt-5 ml-5"></h1>
+      <AddNewPatient />
     </div>
   );
 }

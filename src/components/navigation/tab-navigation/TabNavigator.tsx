@@ -4,12 +4,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useTabContext } from "./tabUtils";
 import AddIcon from "@mui/icons-material/Add";
-import AddNewPatient from "../../pages/AddNewPatient";
-import PatientHome from "../../pages/PatientHome";
-import PractitionerHome from "../../pages/PractitionerHome";
-import AddEmergencyDetails from "../../pages/AddEmerencyDetails";
-import SearchPatient from "../../pages/SearchPatient";
-import ResearchForms from "../../pages/ResearchForms";
+import HomeNew from "../../../pages/HomePage";
+import AddNewPatient from "../../../pages/AddNewPatient";
+
 interface TabProps {
   className?: string | undefined;
 }
@@ -19,7 +16,7 @@ export default function TabNavigator() {
 
   return (
     <div className="w-full h-full">
-      <div className="flex bg-blue-50 items-stretch h-[35px]">
+      <div className="flex bg-gray-100 items-stretch h-[35px]">
         <button className="flex items-center px-2 text-gray-400" disabled>
           <ArrowBackIosIcon className="!text-[12px]" />
         </button>
@@ -35,7 +32,7 @@ export default function TabNavigator() {
                 className={
                   index == activeTab
                     ? "bg-white border-b-[2.5px] border-[#2196F3] text-[#2196F3]"
-                    : "hover:bg-blue-100"
+                    : "hover:bg-gray-200"
                 }
               >
                 <span onClick={() => setActiveTab(index)}>{tab.title}</span>
@@ -47,8 +44,8 @@ export default function TabNavigator() {
           })}
 
           <div
-            className="text-[#2196F3] !px-3 hover:bg-blue-100"
-            onClick={() => addTab({ title: "Home", element: <HomeTabTest /> })}
+            className="text-[#2196F3] !px-3 hover:bg-gray-200"
+            onClick={() => addTab({ title: "Home", path: "/", element: <HomeTabTest /> })}
           >
             <AddIcon />
           </div>
@@ -99,7 +96,7 @@ export function HomeTabTest({ className }: TabProps) {
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
           onClick={() =>
-            addTab({ title: "Settings", element: <SettingsTabTest /> })
+            addTab({ title: "Settings", path: "/settings", element: <SettingsTabTest /> })
           }
         >
           Go to Settings
@@ -107,76 +104,24 @@ export function HomeTabTest({ className }: TabProps) {
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
           onClick={() =>
-            addTab({ title: "Patients", element: <PatientTabTest /> })
+            addTab({ title: "Patients", path: "/patient", element: <PatientTabTest /> })
           }
         >
           Go to Patients
         </button>
         <button
           className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() => addTab({ title: "Test", element: <TestTabTest /> })}
+          onClick={() => addTab({ title: "Test", path: "/test", element: <TestTabTest /> })}
         >
           Go to Test
         </button>
         <button
           className="rounded-lg bg-green-500 px-4 py-2"
           onClick={() =>
-            addTab({
-              title: "Practitioner Home",
-              element: <PractitionerHome />,
-            })
-          }
-        >
-          HomeNew
-        </button>
-        <button
-          className="rounded-lg bg-green-500 px-4 py-2"
-          onClick={() =>
-            addTab({ title: "Add New Patient", element: <AddNewPatient /> })
+            addTab({ title: "Add New Patient", path: "/patient/add", element: <AddNewPatient /> })
           }
         >
           Add New Patient
-        </button>
-        <button
-          className="rounded-lg bg-green-500 px-4 py-2"
-          onClick={() =>
-            addTab({ title: "Patient Home", element: <PatientHome /> })
-          }
-        >
-          Patient Home
-        </button>
-        <button
-          className="rounded-lg bg-blue-400 px-4 py-2"
-          onClick={() =>
-            addTab({
-              title: "Add Emergency Details",
-              element: <AddEmergencyDetails />,
-            })
-          }
-        >
-          Add Emergency Details
-        </button>
-        <button
-          className="rounded-lg bg-blue-400 px-4 py-2"
-          onClick={() =>
-            addTab({
-              title: "Find Existing Patient",
-              element: <SearchPatient />,
-            })
-          }
-        >
-          Find Exisiting Patient
-        </button>
-        <button
-          className="rounded-lg bg-blue-400 px-4 py-2"
-          onClick={() =>
-            addTab({
-              title: "Research Forms",
-              element: <ResearchForms />,
-            })
-          }
-        >
-          Research Forms
         </button>
       </div>
     </div>
@@ -238,56 +183,11 @@ export function TestTabTest({ className }: TabProps) {
   );
 }
 
-export function PractitionerHomeTest({ className }: TabProps) {
+export function HomeNewTest({ className }: TabProps) {
   return (
     <div className={`flex flex-col ${className}`}>
       <h1 className="text-2xl mt-5 ml-5"></h1>
-      <PractitionerHome />
-    </div>
-  );
-}
-
-export function AddNewPatientTest({ className }: TabProps) {
-  return (
-    <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5"></h1>
-      <AddNewPatient />
-    </div>
-  );
-}
-
-export function PatientHomeTest({ className }: TabProps) {
-  return (
-    <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5"></h1>
-      <PatientHome />
-    </div>
-  );
-}
-
-export function AddEmerencyDetails({ className }: TabProps) {
-  return (
-    <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5"></h1>
-      <AddEmerencyDetails />
-    </div>
-  );
-}
-
-export function SearchPatientTest({ className }: TabProps) {
-  return (
-    <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5"></h1>
-      <SearchPatient />
-    </div>
-  );
-}
-
-export function ResearchFormsTest({ className }: TabProps) {
-  return (
-    <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5"></h1>
-      <ResearchForms />
+      <HomeNew />
     </div>
   );
 }

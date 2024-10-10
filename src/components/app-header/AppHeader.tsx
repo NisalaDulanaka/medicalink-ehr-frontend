@@ -72,7 +72,8 @@ function AppHeader() {
     <AppBar
       position="sticky"
       sx={{
-        bgcolor: lightBlue[800],
+        // bgcolor: lightBlue[800],
+        bgcolor: "#077BE0",
         height: 50,
         display: "flex",
         justifyContent: "center",

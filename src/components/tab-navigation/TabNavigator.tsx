@@ -35,7 +35,7 @@ export default function TabNavigator() {
                 className={
                   index == activeTab
                     ? "bg-white border-b-[2.5px] border-[#2196F3] text-[#2196F3]"
-                    : "hover:bg-gray-200"
+                    : "hover:bg-blue-100"
                 }
               >
                 <span onClick={() => setActiveTab(index)}>{tab.title}</span>

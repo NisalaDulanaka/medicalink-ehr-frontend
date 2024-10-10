@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getReOpenedTabs, ITabContextProviderProps, ITabProps, storeTabsInLocalStorage, TabContext } from "./tabUtils";
+import { useEffect, useRef, useState } from "react";
+import { getReOpenedTabs, getStoredStates, ITabContextProviderProps, ITabProps, storeTabsInLocalStorage, TabContext } from "./tabUtils";
 import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../config";
 import { useMediaQuery } from "@mui/material";
@@ -11,6 +11,7 @@ export default function TabContextProvider({
   const [tabCount, setTabCount] = useState<number>(1);
   const [tabs, setTabs] = useState<ITabProps[]>([]);
   const [activeTab, setActiveTab] = useState(0);
+  const lastItemKey = useRef(0);
   const [pageReloaded, setPageReloaded] = useState(true);
   const isLargeScreen = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
@@ -19,16 +20,18 @@ export default function TabContextProvider({
   useEffect(() => {
     let openTabs = tabs;
     if (pageReloaded) {
-      openTabs = JSON.parse(localStorage.getItem("openTabs") || "[]");
       setPageReloaded(false);
-      if (openTabs) {
-        openTabs = getReOpenedTabs(openTabs);
+
+      const {storedTabs, lastTabKey} = getStoredStates();
+      lastItemKey.current = lastTabKey;
+      if (storedTabs) {
+        openTabs = getReOpenedTabs(storedTabs);
         setTabs(openTabs);
       }
       console.log(openTabs);
     }
     const nextTabIndex = location.state ? location.state.tab : undefined;
-    console.log(nextTabIndex);
+    console.log("nextTabIndex " + nextTabIndex);
 
     const tab = openTabs.find(
       (tab, index) =>
@@ -40,6 +43,7 @@ export default function TabContextProvider({
     } else {
       const newTab = routes.find((route) => route.path === location.pathname);
       if (newTab) {
+        console.log("Added new tab");
         addTab({
           title: newTab.title,
           path: newTab.path || "/",
@@ -49,7 +53,8 @@ export default function TabContextProvider({
         navigate("*");
       }
     }
-  }, [location.pathname]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, location.state, isLargeScreen]);
 
   const selectActiveTab = (index: number) => {
     setActiveTab(index);
@@ -65,22 +70,22 @@ export default function TabContextProvider({
     const newTabs = tabs.filter((_tab, i) => index !== i);
 
     setTabs(newTabs);
+    setTabCount(tabCount - 1);
     if (index == newTabs.length) {
       navigate(tabs[0].path, {
         state: {
           tab: 0,
         },
       });
-
-      return;
     } else if (activeTab != 0 && activeTab > index) {
-      navigate(tabs[activeTab - 1].path, {
+      navigate(newTabs[activeTab - 1].path, {
         state: {
           tab: activeTab - 1,
         },
       });
+      console.log("ACTIVE TAB " + activeTab + " GOING IN");
     }
-    localStorage.setItem("openTabs", JSON.stringify(newTabs));
+    storeTabsInLocalStorage(newTabs);
   };
 
   const addTab = (tab: {
@@ -88,10 +93,11 @@ export default function TabContextProvider({
     path: string;
     element: React.ReactNode;
   }) => {
+    lastItemKey.current++;
     if (isLargeScreen) {
       // create new list and add the tab
       const newTabs = [...tabs];
-      newTabs.push({ ...tab, key: tabCount + 1 });
+      newTabs.push({ ...tab, key: lastItemKey.current });
 
       setTabs(newTabs);
       setTabCount(tabCount + 1);

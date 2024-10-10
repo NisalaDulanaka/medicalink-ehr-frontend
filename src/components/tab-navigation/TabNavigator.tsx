@@ -4,8 +4,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useTabContext } from "./tabUtils";
 import AddIcon from "@mui/icons-material/Add";
-import HomeNew from "../../pages/HomeNew";
 import AddNewPatient from "../../pages/AddNewPatient";
+import PatientHome from "../../pages/PatientHome";
+import PractitionerHome from "../../pages/PractitionerHome";
+import AddEmergencyDetails from "../../pages/AddEmerencyDetails";
+import SearchPatient from "../../pages/SearchPatient";
 interface TabProps {
   className?: string | undefined;
 }
@@ -116,7 +119,12 @@ export function HomeTabTest({ className }: TabProps) {
         </button>
         <button
           className="rounded-lg bg-green-500 px-4 py-2"
-          onClick={() => addTab({ title: "HomeNew", element: <HomeNew /> })}
+          onClick={() =>
+            addTab({
+              title: "Practitioner Home",
+              element: <PractitionerHome />,
+            })
+          }
         >
           HomeNew
         </button>
@@ -127,6 +135,36 @@ export function HomeTabTest({ className }: TabProps) {
           }
         >
           Add New Patient
+        </button>
+        <button
+          className="rounded-lg bg-green-500 px-4 py-2"
+          onClick={() =>
+            addTab({ title: "Patient Home", element: <PatientHome /> })
+          }
+        >
+          Patient Home
+        </button>
+        <button
+          className="rounded-lg bg-blue-300 px-4 py-2"
+          onClick={() =>
+            addTab({
+              title: "Add Emergency Details",
+              element: <AddEmergencyDetails />,
+            })
+          }
+        >
+          Add Emergency Details
+        </button>
+        <button
+          className="rounded-lg bg-blue-300 px-4 py-2"
+          onClick={() =>
+            addTab({
+              title: "Find Existing Patient",
+              element: <SearchPatient />,
+            })
+          }
+        >
+          Find Exisiting Patient
         </button>
       </div>
     </div>
@@ -188,11 +226,11 @@ export function TestTabTest({ className }: TabProps) {
   );
 }
 
-export function HomeNewTest({ className }: TabProps) {
+export function PractitionerHomeTest({ className }: TabProps) {
   return (
     <div className={`flex flex-col ${className}`}>
       <h1 className="text-2xl mt-5 ml-5"></h1>
-      <HomeNew />
+      <PractitionerHome />
     </div>
   );
 }
@@ -202,6 +240,33 @@ export function AddNewPatientTest({ className }: TabProps) {
     <div className={`flex flex-col ${className}`}>
       <h1 className="text-2xl mt-5 ml-5"></h1>
       <AddNewPatient />
+    </div>
+  );
+}
+
+export function PatientHomeTest({ className }: TabProps) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <h1 className="text-2xl mt-5 ml-5"></h1>
+      <PatientHome />
+    </div>
+  );
+}
+
+export function AddEmerencyDetails({ className }: TabProps) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <h1 className="text-2xl mt-5 ml-5"></h1>
+      <AddEmerencyDetails />
+    </div>
+  );
+}
+
+export function SearchPatientTest({ className }: TabProps) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <h1 className="text-2xl mt-5 ml-5"></h1>
+      <SearchPatient />
     </div>
   );
 }

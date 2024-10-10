@@ -7,7 +7,7 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import BookIcon from "@mui/icons-material/Book";
 import BarChartIcon from "@mui/icons-material/BarChart";
 
-const Home: React.FC = () => {
+const PractitionerHome: React.FC = () => {
   return (
     <Box
       sx={{
@@ -130,4 +130,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default PractitionerHome;

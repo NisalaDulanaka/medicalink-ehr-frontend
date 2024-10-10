@@ -7,14 +7,14 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import BookIcon from "@mui/icons-material/Book";
 import BarChartIcon from "@mui/icons-material/BarChart";
 
-const Home: React.FC = () => {
+const PractitionerHome: React.FC = () => {
   return (
     <Box
       sx={{
         flexGrow: 1,
         // bgcolor: "#F5F9FF",
         minHeight: "100vh",
-        margin: 5,
+        padding: 2,
       }}
     >
       <Grid container spacing={2}>
@@ -22,7 +22,15 @@ const Home: React.FC = () => {
           <Button
             variant="outlined"
             fullWidth
-            startIcon={<PersonAddIcon sx={{ color: "#0277bd" }} />}
+            startIcon={
+              <PersonAddIcon
+                sx={{
+                  color: "#0277bd",
+                  width: "40px",
+                  height: "40px",
+                }}
+              />
+            }
             sx={{
               height: "60px",
               justifyContent: "flex-start",
@@ -40,7 +48,11 @@ const Home: React.FC = () => {
           <Button
             variant="outlined"
             fullWidth
-            startIcon={<SearchIcon sx={{ color: "#0277bd" }} />}
+            startIcon={
+              <SearchIcon
+                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+              />
+            }
             sx={{
               height: "60px",
               justifyContent: "flex-start",
@@ -58,7 +70,11 @@ const Home: React.FC = () => {
           <Button
             variant="outlined"
             fullWidth
-            startIcon={<ScheduleIcon sx={{ color: "#0277bd" }} />}
+            startIcon={
+              <ScheduleIcon
+                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+              />
+            }
             sx={{
               height: "60px",
               justifyContent: "flex-start",
@@ -76,7 +92,11 @@ const Home: React.FC = () => {
           <Button
             variant="outlined"
             fullWidth
-            startIcon={<CalculateIcon sx={{ color: "#0277bd" }} />}
+            startIcon={
+              <CalculateIcon
+                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+              />
+            }
             sx={{
               height: "60px",
               justifyContent: "flex-start",
@@ -94,7 +114,11 @@ const Home: React.FC = () => {
           <Button
             variant="outlined"
             fullWidth
-            startIcon={<BookIcon sx={{ color: "#0277bd" }} />}
+            startIcon={
+              <BookIcon
+                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+              />
+            }
             sx={{
               height: "60px",
               justifyContent: "flex-start",
@@ -112,7 +136,11 @@ const Home: React.FC = () => {
           <Button
             variant="outlined"
             fullWidth
-            startIcon={<BarChartIcon sx={{ color: "#0277bd" }} />}
+            startIcon={
+              <BarChartIcon
+                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+              />
+            }
             sx={{
               height: "60px",
               justifyContent: "flex-start",
@@ -130,4 +158,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default PractitionerHome;

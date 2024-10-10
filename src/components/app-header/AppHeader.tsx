@@ -91,7 +91,17 @@ function AppHeader() {
             alignItems: "center",
           }}
         >
-          <img src={WhiteLogo2} width={150} />
+          <Box
+            sx={{
+              userSelect: "none",
+              msUserSelect: "none",
+              MozUserSelect: "none",
+              WebkitUserSelect: "none",
+              MozWindowDragging: "none",
+            }}
+          >
+            <img src={WhiteLogo2} width={150} />
+          </Box>
 
           <Box
             sx={{

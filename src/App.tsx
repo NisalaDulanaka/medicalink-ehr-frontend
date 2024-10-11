@@ -1,4 +1,5 @@
 import "./App.css";
+import "./responsive.css";
 import AppHeader from "./components/app-header/AppHeader";
 import TabContextProvider from "./components/tab-navigation/TabContext";
 import TabNavigator from "./components/tab-navigation/TabNavigator";

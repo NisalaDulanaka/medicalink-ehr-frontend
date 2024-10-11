@@ -1,20 +1,17 @@
 import React from "react";
 import { Button, Box, Grid } from "@mui/material";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import SearchIcon from "@mui/icons-material/Search";
-import ScheduleIcon from "@mui/icons-material/Schedule";
-import CalculateIcon from "@mui/icons-material/Calculate";
-import BookIcon from "@mui/icons-material/Book";
-import BarChartIcon from "@mui/icons-material/BarChart";
+import VaccinesOutlinedIcon from "@mui/icons-material/VaccinesOutlined";
+import MedicalInformationOutlinedIcon from "@mui/icons-material/MedicalInformationOutlined";
+import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
 
-const PractitionerHome: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <Box
       sx={{
         flexGrow: 1,
         // bgcolor: "#F5F9FF",
         minHeight: "100vh",
-        padding: 2,
+        margin: 5,
       }}
     >
       <Grid container spacing={2}>
@@ -23,33 +20,7 @@ const PractitionerHome: React.FC = () => {
             variant="outlined"
             fullWidth
             startIcon={
-              <PersonAddIcon
-                sx={{
-                  color: "#0277bd",
-                  width: "40px",
-                  height: "40px",
-                }}
-              />
-            }
-            sx={{
-              height: "60px",
-              justifyContent: "flex-start",
-              textTransform: "none",
-              color: "black",
-            }}
-            href=""
-            target=""
-          >
-            Add New Patient
-          </Button>
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
-          <Button
-            variant="outlined"
-            fullWidth
-            startIcon={
-              <SearchIcon
+              <MedicalInformationOutlinedIcon
                 sx={{ color: "#0277bd", width: "40px", height: "40px" }}
               />
             }
@@ -62,7 +33,7 @@ const PractitionerHome: React.FC = () => {
             href=""
             target=""
           >
-            Find Existing Patient
+            Colorectal Cancer - University of Colombo
           </Button>
         </Grid>
 
@@ -71,7 +42,7 @@ const PractitionerHome: React.FC = () => {
             variant="outlined"
             fullWidth
             startIcon={
-              <ScheduleIcon
+              <VaccinesOutlinedIcon
                 sx={{ color: "#0277bd", width: "40px", height: "40px" }}
               />
             }
@@ -84,7 +55,7 @@ const PractitionerHome: React.FC = () => {
             href=""
             target=""
           >
-            Scheduling / Task Flow
+            Infectious Bowel Disease - University of Colombo
           </Button>
         </Grid>
 
@@ -93,7 +64,7 @@ const PractitionerHome: React.FC = () => {
             variant="outlined"
             fullWidth
             startIcon={
-              <CalculateIcon
+              <LocalHospitalOutlinedIcon
                 sx={{ color: "#0277bd", width: "40px", height: "40px" }}
               />
             }
@@ -106,7 +77,7 @@ const PractitionerHome: React.FC = () => {
             href=""
             target=""
           >
-            Clinical Calculators
+            EAGLE 2
           </Button>
         </Grid>
 
@@ -115,7 +86,7 @@ const PractitionerHome: React.FC = () => {
             variant="outlined"
             fullWidth
             startIcon={
-              <BookIcon
+              <LocalHospitalOutlinedIcon
                 sx={{ color: "#0277bd", width: "40px", height: "40px" }}
               />
             }
@@ -128,7 +99,7 @@ const PractitionerHome: React.FC = () => {
             href=""
             target=""
           >
-            Guidelines
+            TENTACLE
           </Button>
         </Grid>
 
@@ -137,7 +108,7 @@ const PractitionerHome: React.FC = () => {
             variant="outlined"
             fullWidth
             startIcon={
-              <BarChartIcon
+              <LocalHospitalOutlinedIcon
                 sx={{ color: "#0277bd", width: "40px", height: "40px" }}
               />
             }
@@ -150,7 +121,29 @@ const PractitionerHome: React.FC = () => {
             href=""
             target=""
           >
-            Research Statistics
+            GOAL TRAUMA
+          </Button>
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="outlined"
+            fullWidth
+            startIcon={
+              <LocalHospitalOutlinedIcon
+                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+              />
+            }
+            sx={{
+              height: "60px",
+              justifyContent: "flex-start",
+              textTransform: "none",
+              color: "black",
+            }}
+            href=""
+            target=""
+          >
+            BLANK
           </Button>
         </Grid>
       </Grid>
@@ -158,4 +151,4 @@ const PractitionerHome: React.FC = () => {
   );
 };
 
-export default PractitionerHome;
+export default Home;

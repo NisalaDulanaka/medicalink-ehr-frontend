@@ -6,6 +6,8 @@ import {
   RadioGroup,
   Radio,
 } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import { pink } from "@mui/material/colors";
 
 const RegisterNewPatient: React.FC = () => {
   const handleSubmit = () => {
@@ -25,6 +27,9 @@ const RegisterNewPatient: React.FC = () => {
       <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12}>
           <h2>Register New Patient</h2>
+        </Grid>
+        <Grid item xs={12}>
+          <Avatar sx={{ bgcolor: pink[500], width: 56, height: 56 }}>OP</Avatar>
         </Grid>
 
         <Grid item xs={12}>
@@ -80,7 +85,7 @@ const RegisterNewPatient: React.FC = () => {
 
         <Grid item xs={12}>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Submit
+            Save
           </Button>
         </Grid>
       </Grid>

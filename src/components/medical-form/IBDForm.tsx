@@ -1,18 +1,35 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Grid, MenuItem, Checkbox, FormControlLabel } from "@mui/material";
 import { FormControl, FormLabel, RadioGroup, Radio } from "@mui/material";
 import Divider from "@mui/material/Divider";
+import Avatar from "@mui/material/Avatar";
+import { pink } from "@mui/material/colors";
 
 const IBDForm = () => {
   return (
-    <div className="m-5">
-      <Typography align="center">CHIRANGA SHALITHA, 21Y Male</Typography>
-      <Typography align="center" fontWeight={600}>
-        Colorectal Cancer Database - Form
-      </Typography>
+    <div className="m-2">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 1,
+          marginTop: 2,
+          marginBottom: 2,
+        }}
+      >
+        <Avatar sx={{ bgcolor: pink[500], width: 56, height: 56 }}>CS</Avatar>
+        <Typography>CHIRANGA SHALITHA, 21Y Male</Typography>
+      </Box>
+      <div className="mt-2">
+        <Typography align="center" fontWeight={600}>
+          Infectious Bowel Disease - University of Colombo
+        </Typography>
+      </div>
 
       <div className="m-2">
         <Divider sx={{ fontWeight: 600, marginTop: 2, marginBottom: 2 }}>
@@ -205,7 +222,7 @@ const IBDForm = () => {
           </Grid>
         </Grid>
       </div>
-      <div className="m-5">
+      <div className="m-2">
         <Divider sx={{ fontWeight: 600, marginTop: 2, marginBottom: 2 }}>
           Section B - History & Symptoms of IBD
         </Divider>
@@ -538,7 +555,7 @@ const IBDForm = () => {
           </Grid>
         </Grid>
       </div>
-      <div className="m-5">
+      <div className="m-2">
         <Divider sx={{ fontWeight: 600, marginTop: 2, marginBottom: 2 }}>
           Section C - Additional Information
         </Divider>
@@ -743,7 +760,12 @@ const IBDForm = () => {
             />
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          sx={{ marginTop: 2, display: "flex", gap: 2 }}
+        >
           <Button variant="outlined">Reset</Button>
           <Button variant="contained">Submit</Button>
         </Grid>

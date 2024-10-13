@@ -3,12 +3,14 @@ import { createContext, useContext } from "react";
 interface IAuthContextProps {
   setAuthData: (data: {
     token: string;
-    userName: string;
+    expiresIn: number;
     refreshToken: string;
+    userName?: string;
   }) => void;
   token?: string;
   userName?: string;
   refreshToken?: string;
+  expiresIn?: string;
 }
 
 export interface IAuthContextProviderProps {

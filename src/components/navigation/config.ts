@@ -13,12 +13,12 @@ export interface IAppRoute {
     path: string;
     index?: boolean;
     Component: React.ComponentType | null | undefined;
+    standAlone?: boolean;
 }
 
 export const routes: IAppRoute[] = [
     {
         title: "Home",
-        index: true,
         path: "/",
         Component: HomePage,
     },
@@ -46,24 +46,6 @@ export const routes: IAppRoute[] = [
         title: "Patient Search",
         path: "/patient-search",
         Component: SearchPatient,
-    },
-    {
-        // Clinical Calculators
-        title: "",
-        path: "/",
-        Component: HomePage,
-    },
-    {
-        // Guidelines
-        title: "",
-        path: "/",
-        Component: HomePage,
-    },
-    {
-        // Research Statistics
-        title: "",
-        path: "/",
-        Component: HomePage,
     },
     {
         title: "Research Forms",

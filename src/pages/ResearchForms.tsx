@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         flexGrow: 1,
         // bgcolor: "#F5F9FF",
         minHeight: "100vh",
-        padding: 2,
+        margin: 5,
       }}
     >
       <Grid container spacing={2}>

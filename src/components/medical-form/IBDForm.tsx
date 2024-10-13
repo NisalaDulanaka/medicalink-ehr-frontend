@@ -10,7 +10,7 @@ import { pink } from "@mui/material/colors";
 
 const IBDForm = () => {
   return (
-    <div className="m-2">
+    <div className="m-5">
       <Box
         sx={{
           display: "flex",
@@ -84,8 +84,16 @@ const IBDForm = () => {
             <FormControl component="fieldset">
               <FormLabel>Gender</FormLabel>
               <RadioGroup row name="gender">
-                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="no" control={<Radio />} label="No" />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -561,12 +569,11 @@ const IBDForm = () => {
         </Divider>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I know that I have enough money in savings, retirement, or assets to cover the costs of my treatment"
-              variant="outlined"
-            >
+            <Typography>
+              I know that I have enough money in savings, retirement, or assets
+              to cover the costs of my treatment
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -575,12 +582,11 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="My out-of-pocket medical expenses are more than I thought they would be"
-              variant="outlined"
-            >
+            <Typography>
+              My out-of-pocket medical expenses are more than I thought they
+              would be
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -589,12 +595,11 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I worry about the financial problems I will have in the future as a result of my illness or treatment"
-              variant="outlined"
-            >
+            <Typography>
+              I worry about the financial problems I will have in the future as
+              a result of my illness or treatment
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -603,12 +608,10 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I feel I have no choice about the amount of money I spend on care"
-              variant="outlined"
-            >
+            <Typography>
+              I feel I have no choice about the amount of money I spend on care
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -617,12 +620,11 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I am frustrated that I cannot work or contribute as much as I usually do"
-              variant="outlined"
-            >
+            <Typography>
+              I am frustrated that I cannot work or contribute as much as I
+              usually do
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -631,12 +633,10 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I am satisfied with my current financial situation"
-              variant="outlined"
-            >
+            <Typography>
+              I am satisfied with my current financial situation
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -645,12 +645,8 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I am able to meet my monthly expenses"
-              variant="outlined"
-            >
+            <Typography>I am able to meet my monthly expenses</Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -659,12 +655,8 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I feel financially stressed"
-              variant="outlined"
-            >
+            <Typography>I feel financially stressed</Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -673,12 +665,11 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I am concerned about keeping my job and income, including paid work at home"
-              variant="outlined"
-            >
+            <Typography>
+              I am concerned about keeping my job and income, including paid
+              work at home
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -687,12 +678,11 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="My cancer or treatment has reduced my satisfaction with my present financial situation"
-              variant="outlined"
-            >
+            <Typography>
+              My cancer or treatment has reduced my satisfaction with my present
+              financial situation
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -701,12 +691,8 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="I feel in control of my financial situation"
-              variant="outlined"
-            >
+            <Typography>I feel in control of my financial situation</Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -715,12 +701,10 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="My illness has been a financial hardship to my family and me"
-              variant="outlined"
-            >
+            <Typography>
+              My illness has been a financial hardship to my family and me
+            </Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="not at all">Not at all</MenuItem>
               <MenuItem value="a little bit">A little bit</MenuItem>
               <MenuItem value="somewhat">Somewhat</MenuItem>
@@ -729,12 +713,8 @@ const IBDForm = () => {
             </TextField>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              fullWidth
-              label="What has been the main financial concern?"
-              variant="outlined"
-            >
+            <Typography>What has been the main financial concern?</Typography>
+            <TextField select fullWidth label="Select" variant="outlined">
               <MenuItem value="investigations">Investigations</MenuItem>
               <MenuItem value="channeling charges">Channeling charges</MenuItem>
               <MenuItem value="medicine">Medicine</MenuItem>

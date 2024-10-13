@@ -1,10 +1,15 @@
 import React from "react";
+import { useTabContext } from "../components/navigation/tab-navigation/tabUtils";
 import { Button, Box, Grid } from "@mui/material";
 import VaccinesOutlinedIcon from "@mui/icons-material/VaccinesOutlined";
 import MedicalInformationOutlinedIcon from "@mui/icons-material/MedicalInformationOutlined";
 import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
+import CCDForm from "../components/medical-form/CCDForm";
+import IBDForm from "../components/medical-form/IBDForm";
 
 const Home: React.FC = () => {
+  const { addTab } = useTabContext();
+
   return (
     <Box
       sx={{
@@ -21,8 +26,15 @@ const Home: React.FC = () => {
             fullWidth
             startIcon={
               <MedicalInformationOutlinedIcon
-                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+                sx={{ color: "#0277bd", width: "30px", height: "30px" }}
               />
+            }
+            onClick={() =>
+              addTab({
+                title: "Colorectal Cancer - University of Colombo",
+                path: "/research-forms/ccdform",
+                element: <CCDForm />,
+              })
             }
             sx={{
               height: "60px",
@@ -43,8 +55,15 @@ const Home: React.FC = () => {
             fullWidth
             startIcon={
               <VaccinesOutlinedIcon
-                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+                sx={{ color: "#0277bd", width: "30px", height: "30px" }}
               />
+            }
+            onClick={() =>
+              addTab({
+                title: "Infectious Bowel Disease - University of Colombo",
+                path: "/research-forms/ibdform",
+                element: <IBDForm />,
+              })
             }
             sx={{
               height: "60px",
@@ -65,7 +84,7 @@ const Home: React.FC = () => {
             fullWidth
             startIcon={
               <LocalHospitalOutlinedIcon
-                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+                sx={{ color: "#0277bd", width: "30px", height: "30px" }}
               />
             }
             sx={{
@@ -87,7 +106,7 @@ const Home: React.FC = () => {
             fullWidth
             startIcon={
               <LocalHospitalOutlinedIcon
-                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+                sx={{ color: "#0277bd", width: "30px", height: "30px" }}
               />
             }
             sx={{
@@ -109,7 +128,7 @@ const Home: React.FC = () => {
             fullWidth
             startIcon={
               <LocalHospitalOutlinedIcon
-                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+                sx={{ color: "#0277bd", width: "30px", height: "30px" }}
               />
             }
             sx={{
@@ -131,7 +150,7 @@ const Home: React.FC = () => {
             fullWidth
             startIcon={
               <LocalHospitalOutlinedIcon
-                sx={{ color: "#0277bd", width: "40px", height: "40px" }}
+                sx={{ color: "#0277bd", width: "30px", height: "30px" }}
               />
             }
             sx={{

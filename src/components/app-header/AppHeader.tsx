@@ -160,18 +160,40 @@ function AppHeader() {
             </Box>
 
             <Box>
-              <Box sx={{ backgroundColor: "#00000022", height: "100%", borderRadius: "16px",
-                display: "flex", alignItems: "center", columnGap: "10px", paddingLeft: "8px", paddingRight: "8px",
-                paddingTop: "7px", paddingBottom: "7px", cursor: "pointer", }}
-                onClick={handleOpenUserMenu}>
-                <Avatar alt="" src={AdminAvatar} style={{
-                  width: "24px", height: "24px",
-                }}/>
-                {
-                  isLargeScreen && <Typography fontSize="0.8125rem" style={{
-                    userSelect: "none",
-                  }}>Randev Wannakuwatte</Typography>
-                }
+              <Box
+                sx={{
+                  backgroundColor: "#00000022",
+                  height: "100%",
+                  borderRadius: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  columnGap: "10px",
+                  paddingLeft: "8px",
+                  paddingRight: "8px",
+                  paddingTop: "7px",
+                  paddingBottom: "7px",
+                  cursor: "pointer",
+                }}
+                onClick={handleOpenUserMenu}
+              >
+                <Avatar
+                  alt=""
+                  src={AdminAvatar}
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                  }}
+                />
+                {isLargeScreen && (
+                  <Typography
+                    fontSize="0.8125rem"
+                    style={{
+                      userSelect: "none",
+                    }}
+                  >
+                    Randev Wannakuwatte
+                  </Typography>
+                )}
               </Box>
               <Menu
                 sx={{ mt: "25px" }}

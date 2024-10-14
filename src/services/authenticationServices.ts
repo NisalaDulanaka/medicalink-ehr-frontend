@@ -21,7 +21,7 @@ export const userLogOut = async (): Promise<ILogoutResponse | undefined> => {
   try {
     const response = await api.post("/me/logout");
     if (!response.data && !response.data.data) {
-        return;
+      return;
     }
     Cookies.remove("token");
     Cookies.remove("refreshToken");
@@ -36,4 +36,24 @@ export const userLogOut = async (): Promise<ILogoutResponse | undefined> => {
 
 export const registerUser = async () => {
   //TODO: Implement
+};
+
+export const setAuthCookies = (data: {
+  token?: string;
+  userName?: string;
+  refreshToken?: string;
+  expiresIn?: number;
+}) => {
+  try {
+    const expirationInDays = data.expiresIn? (data.expiresIn / (1000 * 60 * 60 * 24)) : 0;
+    Cookies.set("token", data.token || "", { expires: expirationInDays });
+    Cookies.set("refreshToken", data.refreshToken || "", { expires: 7 });
+    Cookies.set("expiresIn", data.expiresIn?.toString() || "", {
+      expires: expirationInDays,
+    });
+    Cookies.set("userName", data.userName || "", { expires: expirationInDays });
+  } catch (error) {
+    console.log("Auth cookie error: ", error);
+    throw error;
+  }
 };

@@ -3,6 +3,7 @@ import { authContext, IAuthContextProviderProps } from "./authContextUtils";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/config";
+import { setAuthCookies } from "../services/authenticationServices";
 
 export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({children}) => {
   const [credentials, setCredentials] = useState<{
@@ -41,11 +42,9 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
   useEffect(() => {
     if (!credentials) return;
     // Set cookies
-    const expirationInDays = credentials.expiresIn / (1000 * 60 * 60 * 24);
-    Cookies.set("token", credentials.token, { expires: expirationInDays });
-    Cookies.set("refreshToken", credentials.refreshToken, { expires: expirationInDays });
-    Cookies.set("expiration", credentials.expiresIn.toString(), { expires: expirationInDays })
-    Cookies.set("userName", credentials.userName || "", { expires: expirationInDays });
+    setAuthCookies({
+      ...credentials
+    });
 
     api.defaults.headers.common["Authorization"] = `Bearer ${credentials.token}`;
   }, [credentials]);

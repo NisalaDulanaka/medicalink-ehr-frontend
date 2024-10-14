@@ -1,4 +1,4 @@
-import { TextField, Button, Grid, Box, Typography } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import { ILoginRequest } from "../models/loginModels";
 import { useAuthContext } from "../contexts/authContextUtils";
@@ -14,10 +14,7 @@ const LoginPage = () => {
   });
 
   const onSubmit = async () => {
-    const data = await userLogin(
-      loginData.username,
-      loginData.password,
-    );
+    const data = await userLogin(loginData.username, loginData.password);
     console.log("Response data =", data);
     console.log("request data", loginData);
     if (data) {
@@ -30,41 +27,51 @@ const LoginPage = () => {
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          flexGrow: 1,
-          // bgcolor: "#F5F9FF",
-          minHeight: "100vh",
-          margin: 5,
-        }}
-      >
-        <Grid
-          container
-          spacing={2}
-          sx={{ display: "flex", flexDirection: "column" }}
-        >
-          <Grid item xs={6}>
-            <Typography>Email or Identifier*</Typography>
-            <TextField fullWidth label="" variant="outlined" required placeholder="example@example.com" onChange={(e) => {
+    <div className="flex h-[100vh]">
+      <div className="hidden md:block flex-initial h-full w-[500px] bg-[#256ad8]"></div>
+      <div className="flex-auto flex flex-col gap-y-5 justify-center px-8 md:px-20">
+        <div>
+          <Typography>Email or Identifier*</Typography>
+          <TextField
+            sx={{
+              maxWidth: "800px",
+            }}
+            fullWidth
+            label=""
+            variant="outlined"
+            required
+            placeholder="example@example.com"
+            onChange={(e) => {
               setLoggingData({ ...loginData, username: e.target.value });
-            }}/>
-          </Grid>
+            }}
+          />
+        </div>
 
-          <Grid item xs={6}>
-            <Typography>Password*</Typography>
-            <TextField fullWidth label="" variant="outlined" placeholder="password" required onChange={(e) => {
+        <div>
+          <Typography>Password*</Typography>
+          <TextField
+            sx={{
+              maxWidth: "800px",
+            }}
+            fullWidth
+            label=""
+            variant="outlined"
+            placeholder="password"
+            required
+            onChange={(e) => {
               setLoggingData({ ...loginData, password: e.target.value });
-            }}/>
-          </Grid>
-          <Grid item xs={6} sx={{ gap: 2 }}>
-            <Button variant="contained" onClick={() => onSubmit()}>Log In</Button>
-            <Typography>Or</Typography>
-            <Button variant="outlined">Create Account</Button>
-          </Grid>
-        </Grid>
-      </Box>
-    </>
+            }}
+          />
+        </div>
+        <div className="flex flex-col gap-y-4 items-start">
+          <Button variant="contained" sx={{paddingLeft: "50px", paddingRight: "50px"}} onClick={() => onSubmit()}>
+            Log In
+          </Button>
+          <Typography>Or</Typography>
+          <Button variant="outlined">Create Account</Button>
+        </div>
+      </div>
+    </div>
   );
 };
 

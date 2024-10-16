@@ -17,7 +17,7 @@ function App() {
           <AppHeader />
         </div>
         <div className="flex-auto flex">
-          { isLargeScreen ? <TabNavigator /> : <AppRouter /> }
+          {isLargeScreen ? <TabNavigator /> : <AppRouter />}
         </div>
       </div>
     </TabContextProvider>

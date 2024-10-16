@@ -14,3 +14,8 @@ export interface ILogoutResponse {
     message: string;
     success: boolean;
 }
+
+export interface IRefreshTokenRequest {
+    refreshToken: string;
+    userName?: string;
+}

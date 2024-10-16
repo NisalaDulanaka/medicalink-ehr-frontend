@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { authContext, IAuthContextProviderProps } from "./authContextUtils";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { api } from "../services/config";
-import { setAuthCookies } from "../services/authenticationServices";
+import { api, setOnTokenRefreshHandlers } from "../services/config";
+import { getRefreshToken, setAuthCookies } from "../services/authenticationServices";
+import { ILoginResponse } from "../models/loginModels";
 
 export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({children}) => {
   const [credentials, setCredentials] = useState<{
@@ -22,11 +23,37 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
   }) => {
     setCredentials(data);
   };
+
+  const onTokenRefresh = (data: ILoginResponse) => {
+    setAuthData(data);
+    setAuthCookies(data);
+  };
+  const onTokenRefreshFail = () => navigate("/login");
+  const attemptRefreshToken = async (refreshToken: string) => {
+    try {
+      const data = await getRefreshToken({
+        refreshToken,
+      });
+      if (data) {
+        onTokenRefresh(data);
+      }
+    } catch {
+      onTokenRefreshFail();
+    }
+  };
   
   useEffect(() => {
+    setOnTokenRefreshHandlers(onTokenRefresh, onTokenRefreshFail);
+
     const token = Cookies.get("token");
     if (!token) {
-      navigate("/login");
+      const refreshToken = Cookies.get("refreshToken");
+      if (refreshToken) {
+        attemptRefreshToken(refreshToken);
+      }
+      else {
+        navigate("/login");
+      }
       return;
     }
 

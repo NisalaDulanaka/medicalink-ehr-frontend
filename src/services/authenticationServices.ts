@@ -1,4 +1,4 @@
-import { ILoginResponse, ILogoutResponse } from "../models/loginModels";
+import { ILoginResponse, ILogoutResponse, IRefreshTokenRequest } from "../models/loginModels";
 import { api } from "./config";
 import Cookies from "js-cookie";
 
@@ -57,3 +57,15 @@ export const setAuthCookies = (data: {
     throw error;
   }
 };
+
+export const getRefreshToken = async (input: IRefreshTokenRequest): Promise<ILoginResponse | undefined> => {
+  try {
+    const response = await api.post("/auth/refresh", { refreshToken: input.refreshToken, userName: input.userName });
+    if (response.data && response.data.data) {
+      return response.data.data;
+    }
+  } catch (error) {
+    console.log("Error refreshing token: ", error);
+    throw error;
+  }
+}

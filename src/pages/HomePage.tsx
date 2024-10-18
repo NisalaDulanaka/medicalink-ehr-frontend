@@ -9,7 +9,7 @@ import MedicalInformationOutlinedIcon from "@mui/icons-material/MedicalInformati
 import BarChartIcon from "@mui/icons-material/BarChart";
 import { useTabContext } from "../components/navigation/tab-navigation/tabUtils";
 import SearchPatient from "./SearchPatient";
-import AddNewPatient from "./AddNewPatient";
+import AddNewPatient from "./addNePatient/AddNewPatient";
 import SchedulingTaskFlow from "./SchedulingTaskFlow";
 import ResearchForms from "./ResearchForms";
 

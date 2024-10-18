@@ -11,6 +11,8 @@ interface IAuthContextProps {
   userName?: string;
   refreshToken?: string;
   expiresIn?: string;
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
 }
 
 export interface IAuthContextProviderProps {

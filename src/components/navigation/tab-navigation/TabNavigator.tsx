@@ -1,15 +1,9 @@
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
 import { useTabContext } from "./tabUtils";
 import AddIcon from "@mui/icons-material/Add";
-import HomeNew from "../../../pages/HomePage";
-import AddNewPatient from "../../../pages/AddNewPatient";
-
-interface TabProps {
-  className?: string | undefined;
-}
+import HomePage from "../../../pages/HomePage";
 
 export default function TabNavigator() {
   const { activeTab, setActiveTab, tabs, removeTab, addTab } = useTabContext();
@@ -45,7 +39,7 @@ export default function TabNavigator() {
 
           <div
             className="text-[#2196F3] !px-3 hover:bg-gray-200"
-            onClick={() => addTab({ title: "Home", path: "/", element: <HomeTabTest /> })}
+            onClick={() => addTab({ title: "Home", path: "/", element: <HomePage /> })}
           >
             <AddIcon />
           </div>
@@ -68,126 +62,6 @@ export default function TabNavigator() {
           );
         })}
       </div>
-    </div>
-  );
-}
-
-//Only used for testing the tab system
-export function HomeTabTest({ className }: TabProps) {
-  const { addTab } = useTabContext();
-  const [count, setCount] = useState(0);
-
-  return (
-    <div
-      className={`flex flex-col justify-center items-center py-20 ${className}`}
-    >
-      <div>Home Tab</div>
-      <p>{count}</p>
-      <button
-        className="bg-red-400 rounded-lg px-4 py-2"
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        Increment
-      </button>
-
-      <div className="flex mt-4 gap-x-3">
-        <button
-          className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() =>
-            addTab({ title: "Settings", path: "/settings", element: <SettingsTabTest /> })
-          }
-        >
-          Go to Settings
-        </button>
-        <button
-          className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() =>
-            addTab({ title: "Patients", path: "/patient", element: <PatientTabTest /> })
-          }
-        >
-          Go to Patients
-        </button>
-        <button
-          className="rounded-lg bg-yellow-500 px-4 py-2"
-          onClick={() => addTab({ title: "Test", path: "/test", element: <TestTabTest /> })}
-        >
-          Go to Test
-        </button>
-        <button
-          className="rounded-lg bg-green-500 px-4 py-2"
-          onClick={() =>
-            addTab({ title: "Add New Patient", path: "/patient/add", element: <AddNewPatient /> })
-          }
-        >
-          Add New Patient
-        </button>
-      </div>
-    </div>
-  );
-}
-
-export function SettingsTabTest({ className }: TabProps) {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div
-      className={`flex flex-col justify-center items-center py-20 ${className}`}
-    >
-      <div>Settings Tab</div>
-      <p>{count}</p>
-      <button
-        className="bg-red-400 rounded-lg px-4 py-2"
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        Increment
-      </button>
-    </div>
-  );
-}
-
-export function PatientTabTest({ className }: TabProps) {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div
-      className={`flex flex-col justify-center items-center py-20 ${className}`}
-    >
-      <div>Patient Tab</div>
-      <input type="text" placeholder="Enter patients name...." />
-      <p>{count}</p>
-      <button
-        className="bg-red-400 rounded-lg px-4 py-2"
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        Increment
-      </button>
-    </div>
-  );
-}
-
-export function TestTabTest({ className }: TabProps) {
-  return (
-    <div
-      className={`flex flex-col justify-center items-center py-20 ${className}`}
-    >
-      <h1 className="text-2xl">
-        This tab is just to check if the add tab is working
-      </h1>
-    </div>
-  );
-}
-
-export function HomeNewTest({ className }: TabProps) {
-  return (
-    <div className={`flex flex-col ${className}`}>
-      <h1 className="text-2xl mt-5 ml-5"></h1>
-      <HomeNew />
     </div>
   );
 }

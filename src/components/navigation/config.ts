@@ -1,4 +1,4 @@
-import RegisterNewPatient from "../../pages/AddNewPatient";
+import RegisterNewPatient from "../../pages/addNePatient/AddNewPatient";
 import HomePage from "../../pages/HomePage";
 import PatientHome from "../../pages/PatientHome";
 import SearchPatient from "../../pages/SearchPatient"

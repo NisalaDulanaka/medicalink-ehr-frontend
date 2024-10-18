@@ -14,6 +14,7 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
     userName?: string;
   } | undefined>();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   const setAuthData = (data: {
     token: string;
@@ -36,6 +37,7 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
       });
       if (data) {
         onTokenRefresh(data);
+        setIsLoading(false);
       }
     } catch {
       onTokenRefreshFail();
@@ -63,7 +65,8 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
       userName: Cookies.get("userName") || "",
       refreshToken: Cookies.get("refreshToken") || "",
       expiresIn: expiration? Number.parseInt(expiration) : 0,
-    })
+    });
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -82,6 +85,8 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
         token: credentials?.token,
         refreshToken: credentials?.refreshToken,
         setAuthData,
+        isLoading,
+        setIsLoading,
       }}>
         {children}
       </authContext.Provider>

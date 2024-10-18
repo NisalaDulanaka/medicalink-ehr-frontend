@@ -6,7 +6,7 @@ import { userLogin } from "../services/authenticationServices";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const { setAuthData } = useAuthContext();
+  const { setAuthData,setIsLoading } = useAuthContext();
   const navigate = useNavigate();
   const [loginData, setLoggingData] = useState<ILoginRequest>({
     username: "",
@@ -18,6 +18,7 @@ const LoginPage = () => {
     console.log("Response data =", data);
     console.log("request data", loginData);
     if (data) {
+      setIsLoading(false);
       setAuthData({
         ...data,
         userName: loginData.username,
@@ -28,7 +29,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex h-[100vh]">
-      <div className="hidden md:block flex-initial h-full w-[500px] bg-[#256ad8]"></div>
+      <div className="hidden md:block flex-initial h-full md:w-[300px] lg:w-[500px] bg-[#256ad8]"></div>
       <div className="flex-auto flex flex-col gap-y-5 justify-center px-8 md:px-20">
         <div>
           <Typography>Email or Identifier*</Typography>

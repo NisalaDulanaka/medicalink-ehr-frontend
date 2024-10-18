@@ -3,13 +3,16 @@ export interface IRegisterPatientRequest {
     givenName: string;
     familyName: string;
     gender: string;
-    dob: string;
+    dateOfBirth: string;
     telecom: string;
     district: string;
 }
 
-export interface IPatientSearch {
-    familyName?: string;
-    givenName?: string;
-    nic?: string;
+export interface IPatientSearchRequest {
+    filters: {
+        name?: string;
+        nic?: string;
+        address?: string;
+    };
+    sortField?: string;
 }

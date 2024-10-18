@@ -1,5 +1,5 @@
 
 export interface IBaseResponse {
-    status: string;
+    success: boolean;
     message: string;
 }

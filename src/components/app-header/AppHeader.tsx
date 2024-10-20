@@ -13,35 +13,8 @@ import WhiteLogo1 from "../../assets/images/WhiteLogo.png";
 import AdminAvatar from "../../assets/images/randev.jpeg";
 import { IconButton, useMediaQuery } from "@mui/material";
 import { AppMenuOption } from "./utils";
-
-const settings: AppMenuOption[] = [
-  {
-    label: "Profile",
-    onClick: () => {},
-  },
-  {
-    label: "Preference",
-    onClick: () => {},
-  },
-  {
-    label: "Logout",
-    onClick: () => {},
-  },
-];
-const tabs: AppMenuOption[] = [
-  {
-    label: "Home",
-    onClick: () => {},
-  },
-  {
-    label: "Appointments",
-    onClick: () => {},
-  },
-  {
-    label: "Settings",
-    onClick: () => {},
-  },
-];
+import { userLogOut } from "../../services/authenticationServices";
+import { useNavigate } from "react-router-dom";
 
 function AppHeader() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -51,6 +24,43 @@ function AppHeader() {
     null
   );
   const isLargeScreen = useMediaQuery("(min-width:600px)");
+  const navigate = useNavigate();
+
+  const settings: AppMenuOption[] = [
+    {
+      label: "Profile",
+      onClick: () => {},
+    },
+    {
+      label: "Preference",
+      onClick: () => {},
+    },
+    {
+      label: "Logout",
+      onClick: async () => {
+        const data = await userLogOut();
+        if (data && data.success) {
+          navigate("/login");
+        } else {
+          window.alert("Could not logout");
+        }
+      },
+    },
+  ];
+  const tabs: AppMenuOption[] = [
+    {
+      label: "Home",
+      onClick: () => {},
+    },
+    {
+      label: "Appointments",
+      onClick: () => {},
+    },
+    {
+      label: "Settings",
+      onClick: () => {},
+    },
+  ];
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);

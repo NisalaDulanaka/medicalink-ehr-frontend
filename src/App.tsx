@@ -6,6 +6,7 @@ import TabContextProvider from "./components/navigation/tab-navigation/TabContex
 import TabNavigator from "./components/navigation/tab-navigation/TabNavigator";
 import { useAuthContext } from "./contexts/authContextUtils";
 import AppLoader from "./components/app-loader/AppLoader";
+import AppSection from "./components/app-toasts/AppToast";
 
 function App() {
   // IMPORTANT: Do not change the classes in this component
@@ -20,9 +21,9 @@ function App() {
         <div className="flex-initial">
           <AppHeader />
         </div>
-        <div className="flex-auto flex">
+        <AppSection className="flex-auto flex">
           {isLargeScreen ? <TabNavigator /> : <AppRouter />}
-        </div>
+        </AppSection>
       </div>
     </TabContextProvider>
   );

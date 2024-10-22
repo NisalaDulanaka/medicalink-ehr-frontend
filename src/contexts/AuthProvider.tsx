@@ -45,7 +45,7 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
   };
   
   useEffect(() => {
-    setOnTokenRefreshHandlers(onTokenRefresh, onTokenRefreshFail);
+    /* setOnTokenRefreshHandlers(onTokenRefresh, onTokenRefreshFail);
 
     const token = Cookies.get("token");
     if (!token) {
@@ -65,7 +65,7 @@ export const AuthContextProvider:React.FC<IAuthContextProviderProps> = ({childre
       userName: Cookies.get("userName") || "",
       refreshToken: Cookies.get("refreshToken") || "",
       expiresIn: expiration? Number.parseInt(expiration) : 0,
-    });
+    });*/
     setIsLoading(false);
   }, []);
 

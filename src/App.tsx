@@ -1,5 +1,4 @@
 import { useMediaQuery } from "@mui/material";
-import "./App.css";
 import "./responsive.css";
 import AppHeader from "./components/app-header/AppHeader";
 import AppRouter from "./components/navigation/router-navigation/AppRouter";

@@ -38,7 +38,9 @@ const RegisterNewPatient: React.FC = () => {
     }
     searchKeyWords.push(keyWord);
     setSearchHistory([...searchKeyWords]);
-    Cookies.set("search_history", JSON.stringify(searchKeyWords));
+    Cookies.set("search_history", JSON.stringify(searchKeyWords),{
+      expires: 3,
+    });
   };
 
   const onKeyDown = () => {

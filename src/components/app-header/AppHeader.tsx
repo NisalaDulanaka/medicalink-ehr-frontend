@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import WhiteLogo2 from "../../assets/images/WhiteLogo2.png";
+import WhiteLogo from "../../assets/images/whitelogo.png";
 import AdminAvatar from "../../assets/images/randev.jpeg";
 import { IconButton, useMediaQuery } from "@mui/material";
 import { AppMenuOption } from "./utils";
@@ -108,7 +108,7 @@ function AppHeader() {
               MozWindowDragging: "none",
             }}
           >
-            <img src={WhiteLogo2} width={150} />
+            <img src={WhiteLogo} width={100} />
           </Box>
 
           <Box

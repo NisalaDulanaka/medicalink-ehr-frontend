@@ -1,4 +1,4 @@
-import { TextField, Button, Box } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { FormControlLabel, Radio } from "@mui/material";
 import AppForm, {
   AppFormField,
@@ -30,10 +30,13 @@ const RegisterNewPatient: React.FC = () => {
   });
   const { showSuccessToast, showErrorToast } = useToasts();
 
-  const onSubmit = async (patientInfo: IRegisterPatientRequest, e: React.BaseSyntheticEvent | undefined) => {
+  const onSubmit = async (
+    patientInfo: IRegisterPatientRequest,
+    e: React.BaseSyntheticEvent | undefined
+  ) => {
     e?.preventDefault();
     console.log(patientInfo);
-    
+
     const response = await registerPatient(patientInfo);
     if (response?.success) {
       showSuccessToast("Success", response.message);
@@ -44,12 +47,7 @@ const RegisterNewPatient: React.FC = () => {
   };
 
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        padding: 4,
-      }}
-    >
+    <div className="flex-1 p-8">
       <div className="text-xl font-medium mb-6">
         <h2>Register New Patient</h2>
       </div>
@@ -138,7 +136,7 @@ const RegisterNewPatient: React.FC = () => {
           </div>
         </div>
       </AppForm>
-    </Box>
+    </div>
   );
 };
 

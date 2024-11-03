@@ -24,11 +24,6 @@ export const routes: IAppRoute[] = [
         Component: HomePage,
     },
     {
-        title: "Dashboard",
-        path: "/dashboard",
-        Component: Dashboard,
-    },
-    {
         title: "Patient",
         path: "/patient",
         Component: PatientHome,

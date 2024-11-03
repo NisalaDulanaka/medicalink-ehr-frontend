@@ -6,6 +6,7 @@ import SchedulingTaskFlow from "../../pages/SchedulingTaskFlow";
 import ResearchForms from "../../pages/ResearchForms";
 import CCDForm from "../../components/medical-form/CCDForm";
 import IBDForm from "../../components/medical-form/IBDForm";
+import Dashboard from "../../pages/Dashboard";
 import NotFound from "./NotFound";
 
 export interface IAppRoute {
@@ -21,6 +22,11 @@ export const routes: IAppRoute[] = [
         title: "Home",
         path: "/",
         Component: HomePage,
+    },
+    {
+        title: "Dashboard",
+        path: "/dashboard",
+        Component: Dashboard,
     },
     {
         title: "Patient",
